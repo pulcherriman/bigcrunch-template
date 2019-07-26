@@ -1,4 +1,4 @@
-# 導入後に行う操作
+# 導入時に行う操作
 
 ## プロジェクト作成
 - cmd_for_php.bat
@@ -15,6 +15,7 @@ git init
 git remote add origin https://github.com/pulcherriman/bigcrunch-template.git
 git fetch origin
 git reset --hard origin/ACL-login
+git remote set-url origin https://github.com/ユーザー名/プロジェクト名.git
 ```
 
 ## composer の更新
