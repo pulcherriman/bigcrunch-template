@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bae3f640a631a993a49129d353eefbf9",
+    "content-hash": "8743cf56756df895eb6b4a894089e79e",
     "packages": [
         {
             "name": "aura/intl",
@@ -51,6 +51,52 @@
                 "localization"
             ],
             "time": "2017-01-20T05:00:11+00:00"
+        },
+        {
+            "name": "cakephp/acl",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cakephp/acl.git",
+                "reference": "4fe97ed45c1f32599988c7da317f9bbdd381d473"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cakephp/acl/zipball/4fe97ed45c1f32599988c7da317f9bbdd381d473",
+                "reference": "4fe97ed45c1f32599988c7da317f9bbdd381d473",
+                "shasum": ""
+            },
+            "require": {
+                "cakephp/cakephp": "^3.6.0",
+                "cakephp/plugin-installer": "*"
+            },
+            "require-dev": {
+                "cakephp/cakephp-codesniffer": "^3.0",
+                "phpunit/phpunit": "^5.7.14|^6.0"
+            },
+            "type": "cakephp-plugin",
+            "autoload": {
+                "psr-4": {
+                    "Acl\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "CakePHP Community",
+                    "homepage": "https://github.com/cakephp/acl/graphs/contributors"
+                }
+            ],
+            "description": "Acl Plugin for CakePHP 3.x framework",
+            "homepage": "http://cakephp.org",
+            "keywords": [
+                "acl",
+                "cakephp"
+            ],
+            "time": "2019-06-14T13:42:02+00:00"
         },
         {
             "name": "cakephp/cakephp",
@@ -293,6 +339,103 @@
             "time": "2019-07-25T15:43:38+00:00"
         },
         {
+            "name": "friendsofcake/bootstrap-ui",
+            "version": "1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FriendsOfCake/bootstrap-ui.git",
+                "reference": "d61733535cad6f4ec1c966bacc6cafaef3f461c0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FriendsOfCake/bootstrap-ui/zipball/d61733535cad6f4ec1c966bacc6cafaef3f461c0",
+                "reference": "d61733535cad6f4ec1c966bacc6cafaef3f461c0",
+                "shasum": ""
+            },
+            "require": {
+                "cakephp/cakephp": "^3.5"
+            },
+            "require-dev": {
+                "cakephp/chronos": "^1.1",
+                "phpunit/phpunit": "^5.7.14|^6.0"
+            },
+            "type": "cakephp-plugin",
+            "autoload": {
+                "psr-4": {
+                    "BootstrapUI\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jad Bitar",
+                    "role": "Author",
+                    "homepage": "http://jadb.io"
+                },
+                {
+                    "name": "Others",
+                    "homepage": "https://github.com/friendsofcake/bootstrap-ui/graphs/contributors"
+                }
+            ],
+            "description": "Twitter Bootstrap 3 support for CakePHP 3",
+            "homepage": "http://github.com/friendsofcake/bootstrap-ui",
+            "keywords": [
+                "bootstrap",
+                "cakephp",
+                "twitter"
+            ],
+            "time": "2018-12-20T17:11:21+00:00"
+        },
+        {
+            "name": "jcpires/cakephp3-aclmanager",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JcPires/CakePhp3-AclManager.git",
+                "reference": "7a8b0ea0315540bc905114e6ba6c3b08b501f88e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JcPires/CakePhp3-AclManager/zipball/7a8b0ea0315540bc905114e6ba6c3b08b501f88e",
+                "reference": "7a8b0ea0315540bc905114e6ba6c3b08b501f88e",
+                "shasum": ""
+            },
+            "require": {
+                "cakephp/acl": "dev-master",
+                "cakephp/cakephp": "~3.0",
+                "php": ">=5.4.16"
+            },
+            "require-dev": {
+                "cakephp/cakephp-codesniffer": "dev-master"
+            },
+            "type": "cakephp-plugin",
+            "autoload": {
+                "psr-4": {
+                    "JcPires\\AclManager\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Jean-Christophe Pires",
+                    "email": "djyss@live.fr",
+                    "homepage": "https://github.com/JcPires"
+                }
+            ],
+            "description": "An acl-manager plugin for CakePhp3",
+            "homepage": "https://github.com/JcPires/CakePhp3-AclManager",
+            "keywords": [
+                "acl",
+                "cake3",
+                "cakephp",
+                "plugin"
+            ],
+            "time": "2017-03-16T10:46:32+00:00"
+        },
+        {
             "name": "mobiledetect/mobiledetectlib",
             "version": "2.8.33",
             "source": {
@@ -343,6 +486,84 @@
                 "php mobile detect"
             ],
             "time": "2018-09-01T15:05:15+00:00"
+        },
+        {
+            "name": "monolog/monolog",
+            "version": "1.24.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Seldaek/monolog.git",
+                "reference": "bfc9ebb28f97e7a24c45bdc3f0ff482e47bb0266"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/bfc9ebb28f97e7a24c45bdc3f0ff482e47bb0266",
+                "reference": "bfc9ebb28f97e7a24c45bdc3f0ff482e47bb0266",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "psr/log": "~1.0"
+            },
+            "provide": {
+                "psr/log-implementation": "1.0.0"
+            },
+            "require-dev": {
+                "aws/aws-sdk-php": "^2.4.9 || ^3.0",
+                "doctrine/couchdb": "~1.0@dev",
+                "graylog2/gelf-php": "~1.0",
+                "jakub-onderka/php-parallel-lint": "0.9",
+                "php-amqplib/php-amqplib": "~2.4",
+                "php-console/php-console": "^3.1.3",
+                "phpunit/phpunit": "~4.5",
+                "phpunit/phpunit-mock-objects": "2.3.0",
+                "ruflin/elastica": ">=0.90 <3.0",
+                "sentry/sentry": "^0.13",
+                "swiftmailer/swiftmailer": "^5.3|^6.0"
+            },
+            "suggest": {
+                "aws/aws-sdk-php": "Allow sending log messages to AWS services like DynamoDB",
+                "doctrine/couchdb": "Allow sending log messages to a CouchDB server",
+                "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
+                "ext-mongo": "Allow sending log messages to a MongoDB server",
+                "graylog2/gelf-php": "Allow sending log messages to a GrayLog2 server",
+                "mongodb/mongodb": "Allow sending log messages to a MongoDB server via PHP Driver",
+                "php-amqplib/php-amqplib": "Allow sending log messages to an AMQP server using php-amqplib",
+                "php-console/php-console": "Allow sending log messages to Google Chrome",
+                "rollbar/rollbar": "Allow sending log messages to Rollbar",
+                "ruflin/elastica": "Allow sending log messages to an Elastic Search server",
+                "sentry/sentry": "Allow sending log messages to a Sentry server"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Monolog\\": "src/Monolog"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jordi Boggiano",
+                    "email": "j.boggiano@seld.be",
+                    "homepage": "http://seld.be"
+                }
+            ],
+            "description": "Sends your logs to files, sockets, inboxes, databases and various web services",
+            "homepage": "http://github.com/Seldaek/monolog",
+            "keywords": [
+                "log",
+                "logging",
+                "psr-3"
+            ],
+            "time": "2018-11-05T09:00:11+00:00"
         },
         {
             "name": "psr/container",
@@ -4324,6 +4545,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "cakephp/acl": 20,
+        "jcpires/cakephp3-aclmanager": 20,
         "psy/psysh": 0
     },
     "prefer-stable": true,

@@ -15,7 +15,9 @@
 namespace App\Controller;
 
 use Cake\Controller\Controller;
+use Cake\Controller\ComponentRegistry;
 use Cake\Event\Event;
+use Acl\Controller\Component\AclComponent;
 
 /**
  * Application Controller
@@ -28,6 +30,11 @@ use Cake\Event\Event;
 class AppController extends Controller
 {
 
+    public function beforeFilter(Event $event)
+    {
+        // グループ、ユーザー登録後コメントアウトする
+        // $this->Auth->allow();
+    }
     /**
      * Initialization hook method.
      *
@@ -51,5 +58,28 @@ class AppController extends Controller
          * see https://book.cakephp.org/3.0/en/controllers/components/security.html
          */
         //$this->loadComponent('Security');
+        $this->loadComponent('Acl.Acl');
+        $this->loadComponent('Auth', [
+            'authorize' => 'Controller',
+
+            // 権限無しページに飛ぶと無限ループになったり、変なURLにリダイレクトされるのを防ぐ
+            'unauthorizedRedirect' => false,
+
+            'authError' => 'アクセス権限がありません',
+
+            //'loginRedirect' => [
+            //    'controller' => 'Users',
+            //    'action' => 'index'
+            //],
+        ]);
+    }
+
+    public function isAuthorized($user)
+    {
+        $Collection = new ComponentRegistry();
+        $acl = new AclComponent($Collection);
+        $controller = $this->request->controller;
+        $action     = $this->request->action;
+        return $acl->check(['Users' => ['id' => $user['id']]], "$controller/$action");
     }
 }
