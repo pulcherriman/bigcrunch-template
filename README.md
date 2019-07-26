@@ -1,51 +1,98 @@
-# CakePHP Application Skeleton
+# 導入後に行う操作
 
-[![Build Status](https://img.shields.io/travis/cakephp/app/master.svg?style=flat-square)](https://travis-ci.org/cakephp/app)
-[![Total Downloads](https://img.shields.io/packagist/dt/cakephp/app.svg?style=flat-square)](https://packagist.org/packages/cakephp/app)
-
-A skeleton for creating applications with [CakePHP](https://cakephp.org) 3.x.
-
-The framework source code can be found here: [cakephp/cakephp](https://github.com/cakephp/cakephp).
-
-## Installation
-
-1. Download [Composer](https://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
-2. Run `php composer.phar create-project --prefer-dist cakephp/app [app_name]`.
-
-If Composer is installed globally, run
-
-```bash
-composer create-project --prefer-dist cakephp/app
+## プロジェクト作成
+- cmd_for_php.bat
+```
+cd C:\bigcrunch
+composer create-project --prefer-dist cakephp/app プロジェクト名
 ```
 
-In case you want to use a custom app dir name (e.g. `/myapp/`):
-
-```bash
-composer create-project --prefer-dist cakephp/app myapp
+## テンプレート読み込み
+- git bash
+```
+cd C:\bigcrunch\プロジェクト名
+git init
+git remote add origin https://github.com/pulcherriman/bigcrunch-template.git
+git fetch origin
+git reset --hard origin/ACL-login
 ```
 
-You can now either use your machine's webserver to view the default home page, or start
-up the built-in webserver with:
-
-```bash
-bin/cake server -p 8765
+## composer の更新
+- cmd_for_php.bat
+```
+cd C:\bigcrunch\プロジェクト名
+composer install
 ```
 
-Then visit `http://localhost:8765` to see the welcome page.
+## タイトルの変更
+- config/app.php
+```
+'App' => [
+	...
++   "title" => "任意（表示名）",
++   "projectName" => "bigcrunch",
+],
 
-## Update
+## DB設定
+- http://localhost/phpmyadmin/index.php にアクセス
+- DB 作成
+	- utf8-general-ci
+	```
+	CREATE TABLE users (
+	id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	username VARCHAR(255) NOT NULL UNIQUE,
+	password CHAR(60) NOT NULL,
+	group_id INT(11) NOT NULL,
+	created DATETIME DEFAULT CURRENT_TIMESTAMP,
+	modified DATETIME DEFAULT CURRENT_TIMESTAMP
+	);
 
-Since this skeleton is a starting point for your application and various files
-would have been modified as per your needs, there isn't a way to provide
-automated upgrades, so you have to do any updates manually.
+	CREATE TABLE groups (
+	id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(100) NOT NULL,
+	created DATETIME DEFAULT CURRENT_TIMESTAMP,
+	modified DATETIME DEFAULT CURRENT_TIMESTAMP
+	);
+	```
 
-## Configuration
+## vecdor の修正
+- /vendor/cakephp/acl/src/AclExtras.php 61行目
+```
+-    public $rootNode = 'controllers';
++    public $rootNode = 'App';
+```
 
-Read and edit `config/app.php` and setup the `'Datasources'` and any other
-configuration relevant for your application.
+## ACLテーブルの の更新
+- cmd_for_php.bat
+```
+cd C:\bigcrunch\プロジェクト名\bin
+cake Migrations.migrations migrate -p Acl
+cake acl_extras aco_sync
+```
 
-## Layout
+## 確認
+- AppController.php 34行目
+	- $this->Auth->allow(); のコメントアウトを外す（一番最初にアカウントを作るときの設定）
 
-The app skeleton uses a subset of [Foundation](http://foundation.zurb.com/) (v5) CSS
-framework by default. You can, however, replace it with any other library or
-custom styles.
+- localhost/beechive/groups/add
+	- admin を追加
+	- edit で、全権限をYesに変更
+	- users/add にアクセスして、以下の権限で追加
+		- name: root
+		- pw: root
+		- group: admin
+- users/logout にアクセス
+
+
+- AppController.php を再度コメントアウト
+- http://localhost/プロジェクト名 にアクセスする
+	- ログイン画面に飛ぶはず
+- root でログイン
+	- 初期ページが出てくることを確認
+
+- groups/add で、viewerグループを追加
+	- editで、indexとviewのみYesに設定
+- users/addで、viewerグループのユーザーを追加
+- viewer権限で再ログイン
+- http://localhost/プロジェクト名/users にアクセス
+	- New User を押して、エラーが出ればOK
