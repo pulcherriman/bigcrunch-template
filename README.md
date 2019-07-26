@@ -32,6 +32,7 @@ composer install
 +   "title" => "任意（表示名）",
 +   "projectName" => "bigcrunch",
 ],
+```
 
 ## DB設定
 - http://localhost/phpmyadmin/index.php にアクセス
