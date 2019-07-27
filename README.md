@@ -19,6 +19,7 @@ git remote set-url origin https://github.com/ユーザー名/プロジェクト�
 ```
 
 ## composer の更新
+- composer.lock を削除
 - cmd_for_php.bat
 ```
 cd C:\bigcrunch\プロジェクト名
@@ -57,7 +58,15 @@ composer install
 	);
 	```
 
-## vecdor の修正
+- app.php 268行目付近
+```
+    'username' => 'root',
+    'password' => '',
+    'database' => 'DB名',
+    'encoding' => 'utf8',
+```
+
+## vendor の修正
 - /vendor/cakephp/acl/src/AclExtras.php 61行目
 ```
 -    public $rootNode = 'controllers';
@@ -76,7 +85,7 @@ cake acl_extras aco_sync
 - AppController.php 34行目
 	- $this->Auth->allow(); のコメントアウトを外す（一番最初にアカウントを作るときの設定）
 
-- localhost/beechive/groups/add
+- localhost/プロジェクト名/groups/add
 	- admin を追加
 	- edit で、全権限をYesに変更
 	- users/add にアクセスして、以下の権限で追加
