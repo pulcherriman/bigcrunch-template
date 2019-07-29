@@ -17,6 +17,7 @@
 /logs/*
 !/logs/empty
 tmp/debug_kit.sqlite
+/composer.lock
 
 # CakePHP 2
 
